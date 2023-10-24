@@ -6,7 +6,7 @@ const Jobs = () => {
     <>
     <div className={style.jobs}>
       {
-        jobs.map(job=><div className={style.job}>
+        jobs.map((job,index)=><div key={index} className={style.job}>
           <div className={style.pic}>
               <img src={job.img} alt="" />
           </div>

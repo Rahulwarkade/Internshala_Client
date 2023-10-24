@@ -12,14 +12,15 @@ $pink : #FC246A;
 }
 .nav{
     max-width : 100vw;
-    height : 4rem;
+    height : 5rem;
     background-color: black;
     display : flex;
     align-items: center;
+    justify-content : space-between;
     padding : 0 2rem;
-    gap : 10rem;
     border-top: 2px solid white;
     border-bottom: 2px solid white;
+    position : relative;
     .logo{
         width : 6rem;
         height : 100%;
@@ -33,16 +34,71 @@ $pink : #FC246A;
         align-items: center;
         gap : 6rem;
     }
+    .hid{
+        width : 75rem;
+        height : 100%;
+        display: flex;
+        align-items: center;
+        gap : 6rem;
+    }
     .authentication{
-        max-width : 10rem;
-        height : 70%;
         @include center;
-        color: white;
-        gap: .3rem;
-        border: 1px solid $pink;
-        opacity: .8;
+        gap: .6rem;
         .link{
             font-size: 1rem;
+            transition : all .50s ease;
+        }
+        .hambar{
+        font-size : 1rem;
+        display : none;
+        }
+        .cross{
+            font-size : 1rem;
+            display : none;
+        }
+    }
+}
+
+@media only screen and (max-width : 777px){
+    .nav{
+        .hid{display : none;}
+        .manu{
+            position : absolute;
+            width : 270px;
+            height : 18rem;
+            background-color : #FC246A;
+            top : 100%;
+            right : 2rem;  
+            border-radius : 10px;
+            flex-direction: column;
+            justify-content : flex-start;
+            align-items : flex-start;
+            gap : 0;
+            z-index : 999;
+            .link{
+                display : block;
+                margin : 10px 0;
+                padding : 0px 25px;
+                transition : all .50s ease;
+                font-size : 1.5rem;
+            }
+        }
+        .authentication{
+            .link{
+                font-size : 1.5rem;
+                transition : all .50s ease;
+            }
+            .hambar{
+                font-size : 3rem;
+                display : initial;
+                color : white;
+                }
+
+            .cross{
+                font-size : 3rem;
+                display : initial;
+                color : white;
+            }
         }
     }
 }
