@@ -68,24 +68,6 @@ const SignCodepen = () => {
             sign up
           </button>
         </div>
-
-        <div id="login-form">
-          <form onSubmit={loginHandler}>
-            <input type="text" placeholder="Enter email or username" />
-            <input type="password" placeholder="Enter password" />
-            <button type="submit" className="btn login">
-              login
-            </button>
-            <p>
-              <a>Forgotten account</a>
-            </p>
-            <hr />
-            {/* <button type="button" className="btn -box-sd-effect"> <i className="fa fa-google fa-lg" aria-hidden="true"></i> sign in with google</button>
-            <button type="button" className="btn -box-sd-effect"> <i className="fa fa-linkedin fa-lg" aria-hidden="true"></i> sign in with linkedin</button>
-            <button type="button" className="btn -box-sd-effect"> <i className="fa fa-windows fa-lg" aria-hidden="true"></i> sign in with microsoft</button> */}
-          </form>
-        </div>
-
         <div id="signup-form">
           <form onSubmit={signupHandler}>
             <input type="text" placeholder="Firstname" />
@@ -105,6 +87,24 @@ const SignCodepen = () => {
             <button type="button" className="btn -box-sd-effect"> <i className="fa fa-windows fa-lg" aria-hidden="true"></i> sign up with microsoft</button> */}
           </form>
         </div>
+        <div id="login-form">
+          <form onSubmit={loginHandler}>
+            <input type="text" placeholder="Enter email or username" />
+            <input type="password" placeholder="Enter password" />
+            <button type="submit" className="btn login">
+              login
+            </button>
+            <p>
+              <a>Forgotten account</a>
+            </p>
+            <hr />
+            {/* <button type="button" className="btn -box-sd-effect"> <i className="fa fa-google fa-lg" aria-hidden="true"></i> sign in with google</button>
+            <button type="button" className="btn -box-sd-effect"> <i className="fa fa-linkedin fa-lg" aria-hidden="true"></i> sign in with linkedin</button>
+            <button type="button" className="btn -box-sd-effect"> <i className="fa fa-windows fa-lg" aria-hidden="true"></i> sign in with microsoft</button> */}
+          </form>
+        </div>
+
+
       </div>
     </>
   );

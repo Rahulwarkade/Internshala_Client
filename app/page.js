@@ -28,7 +28,7 @@ const page = () => {
           <Internships/>
           <Jobs/>
         </div>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     </>
   )

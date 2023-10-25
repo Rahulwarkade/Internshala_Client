@@ -20,6 +20,10 @@ const profile = ()=>{
         router.push('/');
     }
 
+    const updateHandler = ()=>{
+      router.push('/student/auth/profileupdate')
+    }
+
     useEffect(()=>{},[student])
 
     return <>
@@ -85,7 +89,7 @@ const profile = ()=>{
         <ul>
           <li  className="user-post active">Jobs</li>
           <li  className="user-review">Internships</li>
-          <li  className="user-setting">Update</li>
+          <li onClick={updateHandler}  className="user-setting">Update</li>
         </ul>
       </div>
       <div className="profile-body">
