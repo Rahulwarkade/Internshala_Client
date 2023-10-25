@@ -1,7 +1,8 @@
 'use client'
 import React from 'react';
 import './Profile.scss';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import ReactDOM from "react-dom/client";
 import {asyncsignoutstudent} from "@/store/Actions/studentAction.js"
 import { useDispatch, useSelector} from "react-redux";
 import {useRouter} from 'next/navigation';
@@ -12,9 +13,20 @@ import Link from "next/link";
 
 const profile = ()=>{
     const {student} = useSelector(state=>state.studentReducer);
-
+    const inputpic = useRef();
+    const pic = useRef();
+    const submit =useRef();
     const dispatch = useDispatch();
     const router = useRouter();
+
+    pic?.current?.addEventListener('click',()=>{
+      inputpic?.current?.click();
+    })
+    inputpic?.current?.addEventListener('change',()=>{
+      submit?.current?.click();
+      submit?.current?.submit();
+      
+    })
     const signoutHandler = ()=>{
         dispatch(asyncsignoutstudent());
         router.push('/');
@@ -24,13 +36,23 @@ const profile = ()=>{
       router.push('/student/auth/profileupdate')
     }
 
+    const avatarHandler = (e)=>{
+      e.preventDefault();
+      console.log(e.target);
+    }
+
+
     useEffect(()=>{},[student])
 
     return <>
     <div className="container">
   <div className="profile-header">
-    <div className="profile-img">
-      {(!student)?<img src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJHtLNj7M2GqTtcijfgVGjSK5BWMLlI1Q8pPYNc6G6ZYMQyXUiPWQhK19MtmGh6A6POM&usqp=CAU`} width="200" alt="Profile Image"/>:<img src={student.avatar.url} width="200" alt="Profile Image"/>}
+    <div ref={pic}  className="profile-img">
+      {(!student)?<img  src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJHtLNj7M2GqTtcijfgVGjSK5BWMLlI1Q8pPYNc6G6ZYMQyXUiPWQhK19MtmGh6A6POM&usqp=CAU`} width="200" alt="Profile Image"/>:<img src={student.avatar.url} width="200" alt="Profile Image"/>}
+      <form onSubmit={avatarHandler} id="hidden" encType="multipart/form-data">
+                <input ref={inputpic} id="fileinput" type="file" name="avatar"/>
+                <button ref={submit} id="submit" type="submit" className="btn btn-primary mt-1"> submit </button>
+       </form>
     </div>
     <div className="profile-nav-info">
       {(!student)?<h3 className="user-name">Firstname Lastname</h3>:<h3 className="user-name">{student?.firstname +" "+ student?.lastname}</h3>}

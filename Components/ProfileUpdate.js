@@ -4,14 +4,28 @@ import "./profileupdate.scss";
 import Link from "next/link";
 import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector} from "react-redux";
-import {asyncsignupstudent,asyncsigninstudent} from "@/store/Actions/studentAction.js"
+import {asyncupdatestudent} from "@/store/Actions/studentAction.js"
 
 const profileupdate = ()=>{
-
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const updateHandler = async (e)=>{
+    e.preventDefault();   
+    const updateStudent = {
+        firstname : e.target[0].value,
+        lastname : e.target[1].value,
+        contact : e.target[2].value,
+        city : e.target[3].value,
+        gender : e.target[4].value,
+        email : e.target[5].value,
+    };
+   await  dispatch(asyncupdatestudent(updateStudent));
+   router.push("/student/auth");
+  }
   return <>
       <div className="form-modal">
         <div id="signup-form">
-          <form >
+          <form onSubmit={updateHandler} >
             <input type="text" placeholder="Firstname" />
             <input type="text" placeholder="Lastname" />
             <input type="text" placeholder="Contact" />
@@ -21,19 +35,6 @@ const profileupdate = ()=>{
             <button type="submit" className="btn signup">
               update account
             </button>
-            <hr />
-          </form>
-        </div>
-        <div id="login-form">
-          <form >
-            <input type="text" placeholder="Enter email or username" />
-            <input type="password" placeholder="Enter password" />
-            <button type="submit" className="btn login">
-              login
-            </button>
-            <p>
-              <a>Forgotten account</a>
-            </p>
             <hr />
           </form>
         </div>
