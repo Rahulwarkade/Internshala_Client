@@ -5,14 +5,17 @@ import Link from "next/link";
 import "@/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
-
+import Image from 'next/image'
+import logo from "@/public/logo.jpg";
 const NavBar = () => {
   const [nav,setNav] = useState(false);
 
   return (
     <>
       <div className={style.nav}>
-        <div className={style.logo}>Logo</div>
+        <div className={style.logo}>
+          <Image className={style.img} src={logo} alt="logo"/>
+        </div>
         <div className={(nav)?style.manu:style.hid}>
           <Link className={style.link} href="/Home">
             Home

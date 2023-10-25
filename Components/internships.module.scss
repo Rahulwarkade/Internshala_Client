@@ -1,4 +1,4 @@
-.jobs{
+.internships{
     width : 100vw;
     position: relative;
     padding : 0 10rem;
@@ -16,7 +16,7 @@
         position : relative;
         margin-top : 2rem;
         width : calc(100vw - 20rem);
-        // background-color : green;
+        // background-color : #FFFFFF;
         padding : 2rem;
         display : flex;
         gap : 5rem;
@@ -24,16 +24,16 @@
         .card{
             width : 20rem;
             border-radius: 10px;
-            background-color :#FFFFFF;
+            background-color : #FFFFFF;
             overflow : hidden;
             position: relative;
-            .job{
+            .internship{
                 width : 100%;
-                height : 8rem;
+                // height : 8rem;
                 padding : 1rem;
                 position : relative;
                 h3{
-                    text-transform : capitilized;
+                    text-transform : capitalize;
                 }
                 .line{
                     width : calc(100% - 2rem);
@@ -47,7 +47,7 @@
             }
             .details{
                 width : 100%;
-                height : 8rem;
+                // height : 8rem;
                 padding-left : 1rem;
                 padding-top : 1.7rem;
             }

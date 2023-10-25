@@ -1,17 +1,17 @@
 import React from 'react'
-import style from './Jobs.module.scss';
+import style from './internships.module.scss';
 import Link from 'next/link';
-const Jobs = () => {
+const Internships = () => {
 
   return (
     <>
-    <div className={style.jobs}>
+    <div className={style.internships}>
       <div className={style.nav}>
-        <h1>Latest Jobs on Jobs24 </h1>
+        <h1>Latest internships on Jobs24 </h1>
       </div>
       <div className={style.cards}>
      <div className={style.card}>
-            <div className={style.job}>
+            <div className={style.internship}>
               <h3>software engineer</h3>
               <p>microsoft</p>
               <div className={style.line}>
@@ -26,7 +26,7 @@ const Jobs = () => {
           </div>
        </div>
      <div className={style.card}>
-            <div className={style.job}>
+            <div className={style.internship}>
               <h3>software engineer</h3>
               <p>microsoft</p>
               <div className={style.line}>
@@ -41,7 +41,7 @@ const Jobs = () => {
           </div>
        </div>
      <div className={style.card}>
-            <div className={style.job}>
+            <div className={style.internship}>
               <h3>software engineer</h3>
               <p>microsoft</p>
               <div className={style.line}>
@@ -56,7 +56,7 @@ const Jobs = () => {
           </div>
        </div>
      <div className={style.card}>
-            <div className={style.job}>
+            <div className={style.internship}>
               <h3>software engineer</h3>
               <p>microsoft</p>
               <div className={style.line}>
@@ -71,7 +71,7 @@ const Jobs = () => {
           </div>
        </div>
      <div className={style.card}>
-            <div className={style.job}>
+            <div className={style.internship}>
               <h3>software engineer</h3>
               <p>microsoft</p>
               <div className={style.line}>
@@ -91,4 +91,4 @@ const Jobs = () => {
   )
 }
 
-export default Jobs
+export default Internships
