@@ -1,9 +1,9 @@
 'use client'
 import React from 'react';
 import './Profile.scss';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactDOM from "react-dom/client";
-import {asyncsignoutstudent} from "@/store/Actions/studentAction.js"
+import {asyncstudentavatar} from "@/store/Actions/studentAction.js"
 import { useDispatch, useSelector} from "react-redux";
 import {useRouter} from 'next/navigation';
 import 'remixicon/fonts/remixicon.css'
@@ -18,15 +18,23 @@ const profile = ()=>{
     const submit =useRef();
     const dispatch = useDispatch();
     const router = useRouter();
+    // let acc = 0;
+    // pic?.current?.addEventListener('click',()=>{
+    //   console.log("hello")
+    //   if(acc===0){
+    //     acc = acc+1;
+    //     console.log("hey")
+    //     inputpic?.current?.click();
+    //   }
+    // })
 
-    pic?.current?.addEventListener('click',()=>{
-      inputpic?.current?.click();
-    })
-    inputpic?.current?.addEventListener('change',()=>{
-      submit?.current?.click();
-      submit?.current?.submit();
-      
-    })
+    const inputpicHandler = ()=>{
+      inputpic.current.click();
+    }
+
+    const submitHandler = ()=>{
+      submit.current.click();
+    }
     const signoutHandler = ()=>{
         dispatch(asyncsignoutstudent());
         router.push('/');
@@ -38,7 +46,9 @@ const profile = ()=>{
 
     const avatarHandler = (e)=>{
       e.preventDefault();
-      console.log(e.target);
+      const formdata = new FormData(e.target);
+      formdata.set("avatar",e.target.avatar.files[0]);
+      dispatch(asyncstudentavatar(formdata));
     }
 
 
@@ -47,11 +57,11 @@ const profile = ()=>{
     return <>
     <div className="container">
   <div className="profile-header">
-    <div ref={pic}  className="profile-img">
-      {(!student)?<img  src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJHtLNj7M2GqTtcijfgVGjSK5BWMLlI1Q8pPYNc6G6ZYMQyXUiPWQhK19MtmGh6A6POM&usqp=CAU`} width="200" alt="Profile Image"/>:<img src={student.avatar.url} width="200" alt="Profile Image"/>}
+    <div className="profile-img">
+      {(!student)?<img onClick={inputpicHandler} src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJHtLNj7M2GqTtcijfgVGjSK5BWMLlI1Q8pPYNc6G6ZYMQyXUiPWQhK19MtmGh6A6POM&usqp=CAU`} width="200" alt="Profile Image"/>:<img onClick={inputpicHandler}  src={student.avatar.url} width="200" alt="Profile Image"/>}
       <form onSubmit={avatarHandler} id="hidden" encType="multipart/form-data">
-                <input ref={inputpic} id="fileinput" type="file" name="avatar"/>
-                <button ref={submit} id="submit" type="submit" className="btn btn-primary mt-1"> submit </button>
+                <input ref={inputpic} onChange={submitHandler}  type="file" name="avatar"/>
+                <button ref={submit} type="submit" > submit </button>
        </form>
     </div>
     <div className="profile-nav-info">

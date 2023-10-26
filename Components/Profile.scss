@@ -17,6 +17,7 @@
   height: 200px;
 }
 
+
 .profile-img img {
   border-radius: 50%;
   height: 230px;
@@ -28,6 +29,7 @@
   top: 20px;
   z-index: 5;
   background: #fff;
+  cursor: pointer;
 }
 #hidden{
   display : none;
