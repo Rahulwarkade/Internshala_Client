@@ -3,7 +3,7 @@ import React from 'react';
 import './Profile.scss';
 import { useEffect, useRef, useState } from 'react';
 import ReactDOM from "react-dom/client";
-import {asyncstudentavatar} from "@/store/Actions/studentAction.js"
+import {asynccurrentstudent,asyncstudentavatar,asyncsignoutstudent} from "@/store/Actions/studentAction.js"
 import { useDispatch, useSelector} from "react-redux";
 import {useRouter} from 'next/navigation';
 import 'remixicon/fonts/remixicon.css'
@@ -12,21 +12,17 @@ import NavBar from "./NavBar.js";
 import Link from "next/link";
 
 const profile = ()=>{
-    const {student} = useSelector(state=>state.studentReducer);
+    const [flag,setFlag] = useState(true);
+    const {student,isAuthenticated} = useSelector(state=>state.studentReducer);
+    const jobs = student?.jobs;
+    const internships = student?.internships;
+
     const inputpic = useRef();
     const pic = useRef();
     const submit =useRef();
     const dispatch = useDispatch();
     const router = useRouter();
-    // let acc = 0;
-    // pic?.current?.addEventListener('click',()=>{
-    //   console.log("hello")
-    //   if(acc===0){
-    //     acc = acc+1;
-    //     console.log("hey")
-    //     inputpic?.current?.click();
-    //   }
-    // })
+
 
     const inputpicHandler = ()=>{
       inputpic.current.click();
@@ -41,7 +37,7 @@ const profile = ()=>{
     }
 
     const updateHandler = ()=>{
-      router.push('/student/auth/profileupdate')
+      router.push('/student/profile/profileupdate')
     }
 
     const avatarHandler = (e)=>{
@@ -51,8 +47,13 @@ const profile = ()=>{
       dispatch(asyncstudentavatar(formdata));
     }
 
+    const resetpasswordHandler = ()=>{
+      router.push('/student/profile/resetpassword')
+    }
 
-    useEffect(()=>{},[student])
+    useEffect(()=>{
+      if(!isAuthenticated) router.push("/student")
+    },[student])
 
     return <>
     <div className="container">
@@ -113,39 +114,61 @@ const profile = ()=>{
         </div> */}
 
       </div>
-
     </div>
     <div className="right-side">
 
       <div className="nav">
         <ul>
-          <li  className="user-post active">Jobs</li>
-          <li  className="user-review">Internships</li>
+          <li onClick={()=>{setFlag(true)}} className="user-post active">Jobs</li>
+          <li onClick={()=>{setFlag(false)}} className="user-review">Internships</li>
           <li onClick={updateHandler}  className="user-setting">Update</li>
+          <li onClick={resetpasswordHandler}  className="user-setting">Reset Password</li>
         </ul>
       </div>
-      <div className="profile-body">
-        <div className="profile-posts tab">
-          <h1>Your Post</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa quia sunt itaque ut libero cupiditate ullam qui velit laborum placeat doloribus, non tempore nisi ratione error rem minima ducimus. Accusamus adipisci quasi at itaque repellat sed
-            magni eius magnam repellendus. Quidem inventore repudiandae sunt odit. Aliquid facilis fugiat earum ex officia eveniet, nisi, similique ad ullam repudiandae molestias aspernatur qui autem, nam? Cupiditate ut quasi iste, eos perspiciatis maiores
-            molestiae.</p>
+
+        <div className={(flag)?"cards":"hid"}>
+          {jobs && jobs.map((job)=>{
+            return(         
+            <>
+            <div className="card">
+              <div className="internship">
+                <h3>{job.title}</h3>
+                <p>microsoft</p>
+                <div className="line"></div>
+              </div>
+              <div className="details">
+                <p>gurgaon</p>
+                <p>3,00,000 - 7,00,000/year</p>
+              </div>
+              <div className="more">
+                <Link href="#">View details</Link>
+              </div>
+            </div>
+          </>)
+          })}
         </div>
-        <div className="profile-reviews tab">
-          <h1>User reviews</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam pariatur officia, aperiam quidem quasi, tenetur molestiae. Architecto mollitia laborum possimus iste esse. Perferendis tempora consectetur, quae qui nihil voluptas. Maiores debitis
-            repellendus excepturi quisquam temporibus quam nobis voluptatem, reiciendis distinctio deserunt vitae! Maxime provident, distinctio animi commodi nemo, eveniet fugit porro quos nesciunt quidem a, corporis nisi dolorum minus sit eaque error
-            sequi ullam. Quidem ut fugiat, praesentium velit aliquam!</p>
+        <div className={(!flag)?"cards":"hid"}>
+          {internships && internships.map((intern)=>{
+            return(         
+            <>
+            <div className="card">
+              <div className="internship">
+                <h3>{intern.profile}</h3>
+                <p>microsoft</p>
+                <div className="line"></div>
+              </div>
+              <div className="details">
+                <p>gurgaon</p>
+                <p>3,00,000 - 7,00,000/year</p>
+              </div>
+              <div className="more">
+                <Link href="#">View details</Link>
+              </div>
+            </div>
+          </>)
+          })}
         </div>
-        <div className="profile-settings tab">
-          <div className="account-setting">
-            <h1>Acount Setting</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit omnis eaque, expedita nostrum, facere libero provident laudantium. Quis, hic doloribus! Laboriosam nemo tempora praesentium. Culpa quo velit omnis, debitis maxime, sequi
-              animi dolores commodi odio placeat, magnam, cupiditate facilis impedit veniam? Soluta aliquam excepturi illum natus adipisci ipsum quo, voluptatem, nemo, commodi, molestiae doloribus magni et. Cum, saepe enim quam voluptatum vel debitis
-              nihil, recusandae, omnis officiis tenetur, ullam rerum.</p>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>

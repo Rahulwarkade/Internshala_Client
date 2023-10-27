@@ -31,7 +31,7 @@ const NavBar = () => {
           </Link>
         </div>
         <div className={style.authentication}>
-          <i className="ri-user-add-fill"></i>
+          <i className="ri-user-add-fill" style={{color :" #FC246A",fontSize : "24px" }}></i>
           <button
             className="btn btn-sm btn-success"
             id={style.student}

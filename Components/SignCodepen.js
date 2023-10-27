@@ -12,7 +12,7 @@ const SignCodepen = () => {
     const router = useRouter();
 
     useEffect(() => {
-        if(isAuthenticated) router.push('/student/auth');
+        if(isAuthenticated) router.push('/student/profile');
       },[isAuthenticated,student])
 
     const loginHandler =async (e)=>{
@@ -22,7 +22,6 @@ const SignCodepen = () => {
             password : e.target[1].value,
         };
         await dispatch(asyncsigninstudent(student));
-        console.log(isAuthenticated);
     }
 
     const signupHandler = async (e)=>{
@@ -95,7 +94,7 @@ const SignCodepen = () => {
               login
             </button>
             <p>
-              <a>Forgotten account</a>
+              <Link href='/student/profile/forget'>Forgotten account</Link>
             </p>
             <hr />
             {/* <button type="button" className="btn -box-sd-effect"> <i className="fa fa-google fa-lg" aria-hidden="true"></i> sign in with google</button>

@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 const page = () => {
 
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(asynccurrentstudent());
   },[])

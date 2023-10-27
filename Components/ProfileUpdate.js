@@ -7,6 +7,7 @@ import { useDispatch, useSelector} from "react-redux";
 import {asyncupdatestudent} from "@/store/Actions/studentAction.js"
 
 const profileupdate = ()=>{
+  const {student} = useSelector(state=>state.studentReducer)
   const dispatch = useDispatch();
   const router = useRouter();
   const updateHandler = async (e)=>{
@@ -20,8 +21,9 @@ const profileupdate = ()=>{
         email : e.target[5].value,
     };
    await  dispatch(asyncupdatestudent(updateStudent));
-   router.push("/student/auth");
+   router.push("/student/profile");
   }
+
   return <>
       <div className="form-modal">
         <div id="signup-form">
