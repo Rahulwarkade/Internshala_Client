@@ -6,7 +6,7 @@ import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector} from "react-redux";
 import {asyncsignupemploye,asyncsigninemploye} from "@/store/Actions/employeAction.js"
 
-const SignCodepen = () => {
+const EmployeSignin = () => {
     const dispatch = useDispatch();
     const {employe,isAuthenticated} = useSelector((state)=>state.employeReducer);
     const router = useRouter();
@@ -33,7 +33,8 @@ const SignCodepen = () => {
             city : e.target[3].value,
             gender : e.target[4].value,
             email : e.target[5].value,
-            password : e.target[6].value,
+            organizationname : e.target[6].value,
+            password : e.target[7].value,
         };
        await  dispatch(asyncsignupemploye(newemploye));
     }
@@ -75,6 +76,8 @@ const SignCodepen = () => {
             <input type="text" placeholder="City" />
             <input type="text" placeholder="Genger : Male,Female,and Others" />
             <input type="email" placeholder="Email" />
+            <input type="text" placeholder="Organaization Name" />
+            {/* <input type="text" placeholder="Organaization Logo" /> */}
             <input type="password" placeholder="Password" />
             <button type="submit" className="btn signup">
               create account
@@ -109,4 +112,4 @@ const SignCodepen = () => {
   );
 };
 
-export default SignCodepen;
+export default EmployeSignin;

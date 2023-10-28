@@ -1,13 +1,13 @@
 import React from 'react'
-import employeSignin from "@/Components/EmployeSignin.js";
+import EmployeSignin from "@/Components/EmployeSignin.js";
 
 export const metadata = {
-    title : "student homepage",
+    title : "Employe homepage",
 }
 const student = () => {
   return (
     <>
-        <employeSignin/>
+        <EmployeSignin/>
     </>
   )
 }

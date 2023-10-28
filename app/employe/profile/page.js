@@ -1,7 +1,7 @@
 import React from 'react'
 import EmployeProfile from '@/Components/EmployeProfile.js';
 import NavBar from "@/Components/NavBar.js";
-const EmployeProfile = () => {
+const page = () => {
 
   return (
     <>
@@ -10,4 +10,4 @@ const EmployeProfile = () => {
   )
 }
 
-export default EmployeProfile
+export default page
