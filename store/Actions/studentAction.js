@@ -103,13 +103,3 @@ export const asyncsignoutstudent = (student)=>async(dispatch,getState)=>{
     }
 }
 
-
-// -    -   -   -   -   - ALL INTERNSHIPS - -   -   -   -   -   -   -   -   -  
-
-export const allinternships = ()=>(dispatch,getState)=>{
-    try{
-        
-    }catch(error){
-
-    }
-}

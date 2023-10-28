@@ -1,10 +1,10 @@
 import React from 'react'
-import Profile from "@/Components/ProfileUpdate.js";
+import ProfileUpdate from "@/Components/ProfileUpdate.js";
 
 const page = () => {
   return (
     <>
-        <Profile/>
+        <ProfileUpdate/>
     </>
   )
 }

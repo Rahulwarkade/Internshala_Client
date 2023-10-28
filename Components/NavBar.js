@@ -49,7 +49,7 @@ const NavBar = () => {
             id={style.employee}
             style={{ backgroundColor: "#FC246A", border: "none" }}
           >
-            <Link className={style.link} href="/employee">
+            <Link className={style.link} href="/employe">
               Employee
             </Link>
           </button>
