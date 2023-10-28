@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import './Profile.scss';
+import './EmployeProfile.scss';
 import { useEffect, useRef, useState } from 'react';
 import ReactDOM from "react-dom/client";
 import { asynccurrentemploye, asyncemployeavatar, asyncsignoutemploye } from "@/store/Actions/employeAction.js"
@@ -12,6 +12,16 @@ import NavBar from "./NavBar.js";
 import Link from "next/link";
 
 const profile = () => {
+  const [title, setTitle] = useState("");
+  const [skill, setSkill] = useState("");
+  const [jobtype, setJobtype] = useState("Hibrid");
+  const [openings,setOpenings] = useState();
+  const [discription,setDiscription] = useState("");
+  const [preference,setPreference] = useState("");
+  const [salary,setSalary] = useState();
+  const [perks,setPerks] = useState("");
+  const [assesments,setAssesment] = useState("");
+
   const [flag, setFlag] = useState(true);
   const { employe, isAuthenticated } = useSelector(state => state.employeReducer);
   const jobs = employe?.jobs;
@@ -63,6 +73,81 @@ const profile = () => {
   }, [employe])
 
   return <>
+    <div className="joblayout">
+      <div className="createjob">
+      <form onSubmit={submitHandler}>
+          <input
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            type="text"
+            className="form-control mt-5"
+            placeholder="Title"
+          />
+          <input
+            onChange={(e) => setSkill(e.target.value)}
+            value={skill}
+            type="text"
+            className="form-control mt-5"
+            placeholder="Skills"
+          />
+                    <select
+            className="form-control  mt-3"
+            onChange={(e) => setJobtype(e.target.value)}
+            value={jobtype}
+          >
+            <option value="In office">In office</option>
+            <option value="Remote">Remote</option>
+            <option value="Hibrid">Hibrid</option>
+          </select>
+          <input
+            onChange={(e) => setOpenings(e.target.value)}
+            value={openings}
+            type="number"
+            className="form-control mt-5"
+            placeholder="Openings"
+          />
+          <textarea
+            onChange={(e) => setDiscription(e.target.value)}
+            value={discription}
+            name="task"
+            id="task"
+            placeholder="discription here ....."
+            className="form-control mt-3 "
+          ></textarea>
+                    <input
+            onChange={(e) => setSalary(e.target.value)}
+            value={salary}
+            type="number"
+            className="form-control mt-5"
+            placeholder="Skills"
+          />
+                    <input
+            onChange={(e) => setPreference(e.target.value)}
+            value={preference}
+            type="text"
+            className="form-control mt-5"
+            placeholder="Preference"
+          />
+                    <input
+            onChange={(e) => setPerks(e.target.value)}
+            value={perks}
+            type="text"
+            className="form-control mt-5"
+            placeholder="Perks"
+          />
+                    <input
+            onChange={(e) => setAssesments(e.target.value)}
+            value={assesments}
+            type="text"
+            className="form-control mt-5"
+            placeholder="Assesments"
+          />
+          <button type="submit" className="btn btn-primary mt-3">
+            Post Job
+          </button>
+        </form>
+      </div>
+    </div>
     <div className="container">
       <div className="profile-header">
         <div className="profile-img">
@@ -181,9 +266,7 @@ const profile = () => {
         </div>
       </div>
     </div>
-    <div className="joblayout">
-      
-    </div>
+
   </>
 }
 
