@@ -14,6 +14,7 @@ export const asynccurrentemploye = ()=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/employe");
         dispatch(addemploye(data.employe));
+        console.log("current employe");
     }catch(error){
         dispatch(iserror(error.response.data.message))
     }
@@ -98,6 +99,32 @@ export const asyncsignoutemploye = (employe)=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.get("/employe/signout");
         dispatch(removeemploye());
+    }catch(error){
+        dispatch(iserror(error.response.data.message))
+    }
+}
+
+// -`-`-`-`-    -   -   -   -   -   CREATE JOBS     =   =   =   =   
+
+
+export const asynccreatejobs = (job)=>async(dispatch,getState)=>{
+
+    try{
+        const {data} = await axios.post("/employe/job/create/",job);
+        asynccurrentemploye();
+    }catch(error){
+        dispatch(iserror(error.response.data.message))
+    }
+}
+
+// -`-`-`-`-    -   -   -   -   -   CREATE JOBS     =   =   =   =   
+
+
+export const asynccreateinternship = (intern)=>async(dispatch,getState)=>{
+
+    try{
+        const {data} = await axios.post("/employe/internship/create/",intern);
+        asynccurrentemploye();
     }catch(error){
         dispatch(iserror(error.response.data.message))
     }

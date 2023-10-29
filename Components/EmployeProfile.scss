@@ -5,28 +5,90 @@
 .joblayout{
     position : absolute;
     width : 100vw;
-    height : 100vw;
-    background-color : green;
+    height : 100%;
+    background-color : #e0dfeda7;
     z-index : 9999;
     display : flex;
     justify-content : center;
+    align-items: center;
+    display : none;
+}
+.joblayoutshow{
+    display : initial;
+    position : absolute;
+    width : 100vw;
+    height : 100%;
+    background-color : #e0dfeda7;
+    z-index : 9999;
+    display : flex;
+    justify-content : center;
+    align-items: center;
 }
 .createjob{
-    width : 30rem;
-    height : 50rem;
-    background-color : white;
+    width : 42rem;
+    padding : 9px;
+    position : relative;
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    gap : -5px;
+    background-color : #FFFFFF;
+    border-radius: 7px;
 }
 .createjob input{
-    position: relative;
-    width:100%;
+    position : relative;
+    height : 100%;
+    width : 40rem;
     font-size:1em;
     padding:1.2em 1.7em 1.2em 1.7em;
-    margin-top:0.6em;
-    margin-bottom:0.6em;
     border-radius: 20px;
-    border:none;
-    background:#ebebeb;
-    outline:none;
+    // border:none;
+    // outline:none;
+    font-weight: bold;
+    transition:0.4s;
+}
+.internshiplayout{
+    position : absolute;
+    width : 100vw;
+    height : 100%;
+    background-color : #e0dfeda7;
+    z-index : 9999;
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    display : none;
+}
+.internshipshow{
+    display : initial;
+    position : absolute;
+    width : 100vw;
+    height : 100%;
+    background-color : #e0dfeda7;
+    z-index : 9999;
+    display : flex;
+    justify-content : center;
+    align-items: center;
+}
+.createinternship{
+    width : 42rem;
+    padding : 9px;
+    position : relative;
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    gap : -5px;
+    background-color : #FFFFFF;
+    border-radius: 7px;
+}
+.createinternship input{
+    position : relative;
+    height : 100%;
+    width : 40rem;
+    font-size:1em;
+    padding:1.2em 1.7em 1.2em 1.7em;
+    border-radius: 20px;
+    // border:none;
+    // outline:none;
     font-weight: bold;
     transition:0.4s;
 }
@@ -402,8 +464,7 @@ button.createbtn i {
     margin: 0;
   }
 
-  .profile-header h3 {
-  }
+
 
   .profile-option {
     width: 30px;

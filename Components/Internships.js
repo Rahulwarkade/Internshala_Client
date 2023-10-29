@@ -60,7 +60,7 @@ const Internships = () => {
                       <p>3,00,000 - 7,00,000/year</p>
                     </div>
                     <div className={style.more}>
-                      <Link href="#">View details</Link>
+                      <Link href={`/student/apply/${intern._id}`}>View details</Link>
                     </div>
                   </div>
                 </>
