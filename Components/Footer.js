@@ -1,58 +1,98 @@
-import React from 'react'
-import Link from 'next/link'
-import {ImFacebook2} from 'react-icons/im';
-import {ImTwitter} from 'react-icons/im';
-import {ImLinkedin} from 'react-icons/im';
-import {FaSquareInstagram} from 'react-icons/fa6';
+import React from "react";
+import Link from "next/link";
+import "./footer.scss";
+import logo from "@/public/logo.png";
+import Image from "next/image";
+import { ImFacebook2 } from "react-icons/im";
+import { ImTwitter } from "react-icons/im";
+import { ImLinkedin } from "react-icons/im";
+import { FaSquareInstagram } from "react-icons/fa6";
+import { PiCopyrightFill } from "react-icons/pi";
+
 const Footer = () => {
   return (
     <>
-        <div className="footer">
-            <div className="foot">
-                <div className="foot-one">
-                    <div className="logo">
-                        <img src="#" alt="" />
-                    </div>
-                    <div className="social">
-                        <h3>Connect with us</h3>
-                        <div className="social-icons">
-                                <div className="facebook">
-                                    <ImFacebook2/>
-                                </div>
-                                <div className="insta">
-                                    <FaSquareInstagram/>
-                                </div>
-                                <div className="tiw">
-                                    <ImTwitter/>
-                                </div>
-                                <div className="linked">
-                                    <ImLinkedin/>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="foot-two">
-                    <Link href="#">About us</Link>
-                    <Link href="#">Careers</Link>
-                    <Link href="#">Employer home</Link>
-                    <Link href="#">Sitemap</Link>
-                </div>
-                <div className="foot-three">
-                <Link href="#">Help center</Link>
-                    <Link href="#">Notices</Link>
-                    <Link href="#">Grievances</Link>
-                    <Link href="#">Report issue</Link>
-                </div>
-                <div className="foot-four">
-                <Link href="#">Privacy policy</Link>
-                    <Link href="#">Terms & conditions</Link>
-                    <Link href="#">Fraud alert</Link>
-                    <Link href="#">Trust & safety</Link>
-                </div>
+      <div className="footer">
+        <div className="foot">
+          <div className="foot-one">
+            <div className="logo">
+              <Image className="img" src={logo} alt="Logo" />
             </div>
+            <div className="social">
+              <h3>Connect with us</h3>
+              <div className="social-icons">
+                <Link className="icon" href="#">
+                  <div className="facebook">
+                    <ImFacebook2 />
+                  </div>
+                </Link>
+                <Link className="icon" href="#">
+                  <div className="insta">
+                    <FaSquareInstagram />
+                  </div>
+                </Link>
+                <Link className="icon" href="#">
+                  <div className="tiw">
+                    <ImTwitter />
+                  </div>
+                </Link>
+                <Link className="icon" href="#">
+                  <div className="linked">
+                    <ImLinkedin />
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="foot-two">
+            <Link className="link" href="#">
+              About us
+            </Link>
+            <Link className="link" href="#">
+              Careers
+            </Link>
+            <Link className="link" href="#">
+              Employer home
+            </Link>
+            <Link className="link" href="#">
+              Sitemap
+            </Link>
+          </div>
+          <div className="foot-three">
+            <Link className="link" href="#">
+              Help center
+            </Link>
+            <Link className="link" href="#">
+              Notices
+            </Link>
+            <Link className="link" href="#">
+              Grievances
+            </Link>
+            <Link className="link" href="#">
+              Report issue
+            </Link>
+          </div>
+          <div className="foot-four">
+            <Link className="link" href="#">
+              Privacy policy
+            </Link>
+            <Link className="link" href="#">
+              Terms & conditions
+            </Link>
+            <Link className="link" href="#">
+              Fraud alert
+            </Link>
+            <Link className="link" href="#">
+              Trust & safety
+            </Link>
+          </div>
         </div>
+        <div className="cpy">
+            <h3> <PiCopyrightFill style={{fontSize : "20px"}}/> Copyright 2023 Jobzz24</h3>
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

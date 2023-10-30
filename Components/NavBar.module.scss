@@ -16,13 +16,14 @@
     max-width : 100vw;
     height : 4.5rem;
     background-color: #FFFFFF;
+    position : fixed;
+    z-index : 999;
     display : flex;
     align-items: center;
     justify-content : space-between;
     padding : 0 10rem;
-    margin-top : 4px;
-    border-top: 2px solid white;
     border-bottom: 1px solid rgba(0, 0, 0, 0.215);
+    box-shadow : 0px 20px 17px #edebf1a1;
     .logo{
         min-width : 18rem;
         height : 100%;
@@ -80,7 +81,7 @@
             position : absolute;
             width : 270px;
             height : 18rem;
-            background-color : #FC246A;
+            background-color : #10C8CF;
             top : 100%;
             right : 2rem;  
             border-radius : 10px;
@@ -88,13 +89,14 @@
             justify-content : flex-start;
             align-items : flex-start;
             gap : 0;
-            z-index : 999;
+            z-index : 999999999;
             .link{
                 display : block;
                 margin : 10px 0;
-                padding : 0px 25px;
+                padding : 0px 15px;
                 transition : all .50s ease;
                 font-size : 1.5rem;
+                color : white;
             }
         }
         .authentication{
@@ -103,15 +105,15 @@
                 transition : all .50s ease;
             }
             .hambar{
-                font-size : 3rem;
+                font-size : 3.3rem;
                 display : initial;
-                color : white;
+                color : #10C8CF;
                 }
 
             .cross{
-                font-size : 3rem;
+                font-size : 3.3rem;
                 display : initial;
-                color : white;
+                color : #10C8CF;
             }
         }
     }

@@ -16,6 +16,8 @@ import "remixicon/fonts/remixicon.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./NavBar.js";
 import Link from "next/link";
+import Footer from '@/Components/Footer.js';
+
 
 const profile = () => {
   const [title, setTitle] = useState("");
@@ -93,6 +95,7 @@ const profile = () => {
       salary,
       perks,
       assesments,
+      duration,
     };
     await dispatch(asynccreatejobs(newJob));
 
@@ -167,12 +170,20 @@ const profile = () => {
               placeholder="Openings"
             />
 
+
             <input
               onChange={(e) => setSalary(e.target.value)}
               value={salary}
               type="number"
               className="form-control mt-2"
               placeholder="salary"
+            />
+            <input
+              onChange={(e) => setDuration(e.target.value)}
+              value={duration}
+              type="text"
+              className="form-control mt-2"
+              placeholder="Duration"
             />
             <input
               onChange={(e) => setPreference(e.target.value)}
@@ -200,8 +211,8 @@ const profile = () => {
               onChange={(e) => setJobtype(e.target.value)}
               value={jobtype}
             >
-              <option value="In office">In office</option>
-              <option value="Remote">Remote</option>
+              <option value="Work From Office">Work From Office</option>
+              <option value="Wrok From Home">Work From Home</option>
               <option value="Hibrid">Hibrid</option>
             </select>
             <textarea
@@ -311,8 +322,8 @@ const profile = () => {
               onChange={(e) => setInternshiptype(e.target.value)}
               value={internshiptype}
             >
-              <option value="In office">In office</option>
-              <option value="Remote">Remote</option>
+              <option value="In office">Work From Office</option>
+              <option value="Remote">Work From Home</option>
               <option value="Hibrid">Hibrid</option>
             </select>
             <textarea
@@ -327,7 +338,8 @@ const profile = () => {
           </form>
         </div>
       </div>
-
+      <div>
+      <NavBar/>
       <div className="container">
         <div className="profile-header">
           <div className="profile-img">
@@ -544,6 +556,8 @@ const profile = () => {
             </div>
           </div>
         </div>
+      </div>
+      <Footer/>
       </div>
     </>
   );

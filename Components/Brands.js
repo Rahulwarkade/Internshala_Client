@@ -11,7 +11,7 @@ const Brands = () => {
                 <h1>Top companies trust us</h1>
             </div>
             <div className="marquee">
-                <marquee behavior="scroll" direction="right" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="20">
+                <marquee behavior="scroll" direction="right"  scrollamount="20">
                     <img className="img" src={`https://internshala.com/static/images/homepage/top_companies.png`} alt="loading"/>
                     <img className="img2" src={`https://internshala.com/static/images/homepage/top_companies.png`} alt="loading"/>
                     <img className="img" src={`https://internshala.com/static/images/homepage/top_companies.png`} alt="loading"/>

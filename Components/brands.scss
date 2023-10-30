@@ -34,3 +34,13 @@
         }
     }
 }
+
+@media only screen and (max-width: 777px) {
+    .brands {
+      padding: 0 2rem;
+      .brand{
+        width : calc(100vw - 4rem);
+      }
+    }
+  }
+  
