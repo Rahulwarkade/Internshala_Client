@@ -111,7 +111,7 @@ export const asynccreatejobs = (job)=>async(dispatch,getState)=>{
 
     try{
         const {data} = await axios.post("/employe/job/create/",job);
-        asynccurrentemploye();
+        dispatch(asynccurrentemploye());
     }catch(error){
         dispatch(iserror(error.response.data.message))
     }
@@ -124,7 +124,7 @@ export const asynccreateinternship = (intern)=>async(dispatch,getState)=>{
 
     try{
         const {data} = await axios.post("/employe/internship/create/",intern);
-        asynccurrentemploye();
+        dispatch(asynccurrentemploye());
     }catch(error){
         dispatch(iserror(error.response.data.message))
     }

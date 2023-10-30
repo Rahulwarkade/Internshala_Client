@@ -5,6 +5,7 @@ import NavBar from '@/Components/NavBar.js';
 import Welcome from '@/Components/Welcome.js';
 import Jobs from '@/Components/Jobs.js';
 import Internships from '@/Components/Internships.js';
+import Brands from '@/Components/Brands.js';
 import Footer from '@/Components/Footer.js';
 import '@/node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -28,6 +29,7 @@ const page = () => {
           <Welcome/>
           <Internships/>
           <Jobs/>
+          {/* <Brands/> */}
         </div>
         {/* <Footer/> */}
       </div>

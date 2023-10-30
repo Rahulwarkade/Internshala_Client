@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 
 import {
     addstudent,
+    addinternship,
     removestudent,
     iserror,
     removeerror,
@@ -100,6 +101,17 @@ export const asyncsignoutstudent = (student)=>async(dispatch,getState)=>{
         dispatch(removestudent());
     }catch(error){
         dispatch(iserror(error.response.data.message))
+    }
+}
+
+export const asyncstudentgetjob = (id)=>async(dispatch,getState)=>{
+    try{
+        const {data} = await axios.post("/student/read/internship/"+id);
+        dispatch(addinternship(data.internship));
+    }catch(error){
+        dispatch(iserror(error.response.data.message));
+        console.log(error);
+        toast(error.response.data.message);
     }
 }
 

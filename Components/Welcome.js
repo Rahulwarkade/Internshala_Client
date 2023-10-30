@@ -6,7 +6,7 @@ const Welcome = () => {
     <>
     <div className={style.center}>
         <div className={style.left}>
-          <h1>Find the best job from <span> Jobs24 </span></h1>
+          <h1>Find the best job from <span> Jobzz24 </span></h1>
           <h4>Search from 1500+ Jobs </h4>
 
         </div>

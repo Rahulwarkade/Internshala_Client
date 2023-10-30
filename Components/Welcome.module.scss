@@ -1,9 +1,12 @@
+$black : #333333;
 .center{
     width : 100vw;
     // height : 60vh;
     position : relative;
     // background: linear-gradient(to right,#FC246A,#c95177b1,black,black,black,black,black,rgba(255, 255, 255, 0.571));
-    background: linear-gradient(to right,#FC246A,#c95177b1,#253B49,#253B49,#253B49,#253B49,#253B49,rgba(255, 255, 255, 0.571));
+    // background: linear-gradient(to right,#FC246A,#c95177b1,#253B49,#253B49,#253B49,#253B49,#253B49,rgba(255, 255, 255, 0.571));
+    // background: linear-gradient(to right,#10C8CF,#c95177b1,#253B49,#253B49,#253B49,#253B49,#253B49,rgba(255, 255, 255, 0.571));
+    // background-color : rgba(16, 201, 207, 0.376);
     display : flex;
 
     .left{
@@ -14,13 +17,16 @@
         padding-left: 10rem;
         h1{
             font-size: 8rem;
-            color : white;
+            // color : white;
+            color : $black;
             span{
-                color : #F8CD22;
+                // color : #F8CD22;
+                color : #10C8CF;
             }
         }
         h4{
-            color : white;
+            // color : white;
+            color : $black;
             font-size : 4rem;
         }
     }
