@@ -14,19 +14,21 @@ const NavBar = () => {
     <>
       <div className={style.nav}>
         <div className={style.logo}>
+          <Link href="/">
           <Image className={style.img} src={logo} alt="logo" />
+          </Link>
         </div>
         <div className={nav ? style.manu : style.hid}>
-          <Link className={style.link} href="/Home">
+          <Link className={style.link} href="/">
             Home
           </Link>
           <Link className={style.link} href="/About">
             About
           </Link>
-          <Link className={style.link} href="/Candidate">
+          <Link className={style.link} href="/student/profile">
             Candidate
           </Link>
-          <Link className={style.link} href="/Employer">
+          <Link className={style.link} href="/employe/profile">
             Employer
           </Link>
         </div>
