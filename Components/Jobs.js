@@ -51,7 +51,7 @@ const Jobs = () => {
               </div>
             </div>
             <div className={style.more}>
-              <Link className={style.link} href={`/student/apply/${job._id}`}>
+              <Link className={style.link} href="#">
                 View details
                 <MdOutlineKeyboardDoubleArrowRight
                   className="ml-3"

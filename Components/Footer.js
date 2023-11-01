@@ -16,27 +16,29 @@ const Footer = () => {
         <div className="foot">
           <div className="foot-one">
             <div className="logo">
+              <Link href='/'>     
               <Image className="img" src={logo} alt="Logo" />
+              </Link>
             </div>
             <div className="social">
               <h3>Connect with us</h3>
               <div className="social-icons">
-                <Link className="icon" href="#">
+                <Link className="icon" href="https://www.facebook.com/">
                   <div className="facebook">
                     <ImFacebook2 />
                   </div>
                 </Link>
-                <Link className="icon" href="#">
+                <Link className="icon" href="https://www.instagram.com/sa_india1/">
                   <div className="insta">
                     <FaSquareInstagram />
                   </div>
                 </Link>
-                <Link className="icon" href="#">
+                <Link className="icon" href="https://twitter.com/SA_india1">
                   <div className="tiw">
                     <ImTwitter />
                   </div>
                 </Link>
-                <Link className="icon" href="#">
+                <Link className="icon" href="https://www.linkedin.com/in/sandiaconsultancies?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
                   <div className="linked">
                     <ImLinkedin />
                   </div>

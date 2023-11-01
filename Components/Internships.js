@@ -58,7 +58,7 @@ const Internships = () => {
             <div className={style.more}>
               <Link
                 className={style.link}
-                href={`/student/apply/${intern._id}`}
+                href="#"
               >
                 View details
                 <MdOutlineKeyboardDoubleArrowRight

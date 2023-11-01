@@ -1,0 +1,120 @@
+$grey : #8A91A0;
+@mixin fonta{
+    font-size : 1rem;
+    color : $grey;
+    text-transform: capitalize;
+}
+.contain{
+    width : 100vw;
+    height : 100vh;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.applylayout{
+    width : 60rem;
+    background-color : white;
+    border-radius: 10px;
+    position: absolute;
+    top : 7rem;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 2rem;
+    padding: .7rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .nav{
+        width : 100%;
+        height : 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: capitalize;
+        font-weight: 600;
+        border-bottom : 1px solid $grey;
+    }
+    .jobdetails{
+        width : 100%;
+        display : flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap : 20px;
+        .heading{
+            width : 100%;
+            h3{
+                font-size : 1.5rem;
+                color : black;
+                text-transform: capitalize;
+            }
+            h4{
+                @include fonta;
+            }
+        }
+        .details{
+            width : 100%;
+            h3{
+                @include fonta;
+            }
+            .alpha{
+                width : 100%;
+                display : flex;
+                align-items : center;
+                gap : 7rem;
+                padding-top: 1rem;
+                .comn{
+                    display : flex;
+                    flex-direction: column;
+                    gap : 3px;
+                    h3{
+                        @include fonta;
+                    }
+                }
+            }
+        }
+        .status{
+            display : flex;
+            align-items: center;
+            width : 100%;
+            gap : 2rem;
+            h3{
+                @include fonta;
+            }
+        }
+        span{
+            width : 100%;
+            @include fonta;
+        }
+    }
+
+    .skills{
+        width : 100%;
+        h3{
+            font-size: 1.5rem;
+        }
+        p{
+            @include fonta;
+        }
+    }
+    .perks{
+        width : 100%;
+        h3{
+            font-size: 1.5rem;
+        }
+        p{
+            @include fonta;
+        }
+    }
+    .assesments{
+        width : 100%;
+        h3{
+            font-size: 1.5rem;
+        }
+        p{
+            @include fonta;
+        }
+    }
+}
+

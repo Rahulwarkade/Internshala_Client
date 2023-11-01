@@ -1,6 +1,6 @@
 'use client'
 import React, {useEffect, useState} from 'react'
-import './apply.scss';
+import './applyinternship.scss';
 import '@/node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector} from "react-redux";
 import {useRouter} from 'next/navigation';
