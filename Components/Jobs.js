@@ -63,7 +63,10 @@ const Jobs = () => {
         </>
       );
     });
+  }else{
+    job = "";
   }
+  
   return (
     <>
       <div className={style.jobs}>

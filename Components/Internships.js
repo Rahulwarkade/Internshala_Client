@@ -71,13 +71,15 @@ const Internships = () => {
         </>
       );
     });
+  }else {
+    intern = "";
   }
   return (
     <>
       <div className={style.internships}>
         <div className={style.nav}>
           <h1>
-            Latest internships on <span> jobzz24 </span>{" "}
+            Latest internships on <span> jobzz24 </span>
           </h1>
         </div>
         <div className={style.cards}>{intern}</div>
