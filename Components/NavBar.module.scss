@@ -13,7 +13,7 @@
     text-transform : uppercase;
 }
 .nav{
-    max-width : 100vw;
+    width : 100vw;
     height : 4.5rem;
     background-color: #FFFFFF;
     position : fixed;
@@ -114,6 +114,22 @@
                 font-size : 3.3rem;
                 display : initial;
                 color : #10C8CF;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 444px){
+    .nav{
+        .authentication{
+            #icon{
+                display : none;
+            }
+            #student{
+                display : none;
+            }
+            #employee{
+                display : none;
             }
         }
     }

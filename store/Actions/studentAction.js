@@ -15,7 +15,6 @@ export const asynccurrentstudent = ()=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/student");
         dispatch(addstudent(data.student));
-        console.log(data);
     }catch(error){
         dispatch(iserror(error.response.data.message))
     }

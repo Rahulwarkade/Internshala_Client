@@ -35,6 +35,7 @@ const NavBar = () => {
         <div className={style.authentication}>
           <i
             className="ri-user-add-fill"
+            id = {style.icon}
             style={{ color: " #10C8CF", fontSize: "24px" }}
           ></i>
           <button

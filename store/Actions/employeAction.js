@@ -14,7 +14,6 @@ export const asynccurrentemploye = ()=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/employe");
         dispatch(addemploye(data.employe));
-        console.log("current employe");
     }catch(error){
         dispatch(iserror(error.response.data.message))
     }

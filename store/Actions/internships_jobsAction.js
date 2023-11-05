@@ -22,6 +22,7 @@ export const allinternships = ()=> async(dispatch,getState)=>{
         console.log("Internships aren't available");
     }
 }
+
 // -    -   -   -   -   - ALL JOBS - -   -   -   -   -   -   -   -   -  
 
 export const alljobs = ()=> async(dispatch,getState)=>{
