@@ -18,7 +18,7 @@ export const asynccurrentstudent = ()=>async(dispatch,getState)=>{
         console.log(data);
     }catch(error){
         // dispatch(iserror(error.response.data.message))
-        console.log(error);
+        console.log(error.response.data.message);
     }
 
 }
