@@ -15,6 +15,7 @@ export const asynccurrentstudent = ()=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/student");
         dispatch(addstudent(data.student));
+        console.log(data);
     }catch(error){
         dispatch(iserror(error.response.data.message))
     }
@@ -88,6 +89,7 @@ export const asyncsigninstudent = (student)=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/student/signin",student);
         dispatch(addstudent(data.student));
+        console.log(data);
     }catch(error){
         dispatch(iserror(error.response.data.message))
         toast(error.response.data.message);

@@ -16,7 +16,6 @@ export const allinternships = ()=> async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/allinternship/");
         dispatch(addinternships(data.internships));
-        console.log(data);
     }catch(error){
         // dispatch(adderrors(error.response.data.message));
         // toast(error.response.data.message);
@@ -30,7 +29,6 @@ export const alljobs = ()=> async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/alljobs/");
         dispatch(addjobs(data.jobs));
-        console.log(data);
     }catch(error){
         // dispatch(adderrors(error.response.data.message));
         // toast(error.response.data.message);
