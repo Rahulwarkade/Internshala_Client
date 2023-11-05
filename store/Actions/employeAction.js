@@ -16,7 +16,7 @@ export const asynccurrentemploye = ()=>async(dispatch,getState)=>{
         dispatch(addemploye(data.employe));
         console.log("current employe");
     }catch(error){
-        dispatch(iserror(error.response.data.message))
+        // dispatch(iserror(error.response.data.message))
     }
 
 }
@@ -26,8 +26,8 @@ export const asyncsignupemploye = (employe)=>async(dispatch,getState)=>{
         const {data} = await axios.post("/employe/signup",employe);
         dispatch(addemploye(data.employe));
     }catch(error){
-        dispatch(iserror(error.response.data.message))
-        toast(error.response.data.message);
+        // dispatch(iserror(error.response.data.message))
+        // toast(error.response.data.message);
     }
 }
 export const asyncupdateemploye = (employe)=>async(dispatch,getState)=>{
@@ -37,8 +37,8 @@ export const asyncupdateemploye = (employe)=>async(dispatch,getState)=>{
         const {data }= await axios.post("/employe/update/"+_id,employe);
         dispatch(addemploye(data.employe));
     }catch(error){
-        dispatch(iserror(error.response.data.message))
-        toast(error.response.data.message);
+        // dispatch(iserror(error.response.data.message))
+        // toast(error.response.data.message);
     }
 }
 export const asyncemployeresetpassword = (password)=>async(dispatch,getState)=>{
