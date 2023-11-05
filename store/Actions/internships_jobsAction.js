@@ -17,9 +17,8 @@ export const allinternships = ()=> async(dispatch,getState)=>{
         const {data} = await axios.post("/allinternship/");
         dispatch(addinternships(data.internships));
     }catch(error){
-        // dispatch(adderrors(error.response.data.message));
-        // toast(error.response.data.message);
-        console.log(error);
+        dispatch(adderrors(error.response.data.message));
+        toast(error.response.data.message);
         console.log("Internships aren't available");
     }
 }
@@ -30,9 +29,8 @@ export const alljobs = ()=> async(dispatch,getState)=>{
         const {data} = await axios.post("/alljobs/");
         dispatch(addjobs(data.jobs));
     }catch(error){
-        // dispatch(adderrors(error.response.data.message));
-        // toast(error.response.data.message);
-        console.log(error);
+        dispatch(adderrors(error.response.data.message));
+        toast(error.response.data.message);
         console.log("Jobs aren't available");
     }
 }

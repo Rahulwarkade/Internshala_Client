@@ -118,7 +118,7 @@ const profile = () => {
                 </p>
               )}
               <span id="country" className="country">
-                IDNIA.
+                INDIA.
               </span>
             </div>
           </div>
