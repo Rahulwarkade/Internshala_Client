@@ -17,7 +17,7 @@ export const asynccurrentstudent = ()=>async(dispatch,getState)=>{
         dispatch(addstudent(data.student));
         console.log(data);
     }catch(error){
-        // dispatch(iserror(error.response.data.message))
+        dispatch(iserror(error.response.data.message))
         console.log(error.response.data.message);
     }
 
@@ -96,7 +96,8 @@ export const asyncsigninstudent = (student)=>async(dispatch,getState)=>{
         console.log(data);
     }catch(error){
         // dispatch(iserror(error.response.data.message))
-        // toast(error.response.data.message);
+        toast(error.response.data.message);
+        console.log(error.response.data.message);
     }
 }
 
