@@ -4,6 +4,7 @@ $grey : #8A91A0;
     color : $grey;
     text-transform: capitalize;
 }
+
 .contain{
     width : 100vw;
     height : 100vh;
@@ -115,6 +116,54 @@ $grey : #8A91A0;
         p{
             @include fonta;
         }
+    }
+}
+
+
+.container{
+    width : 100%;
+    height : 100vh;
+    position : absolute;
+    background-color : rgba(0, 0, 0, 0.089);
+    z-index : 99;
+    .modal{
+        background-color : #FFF;
+        position : relative;
+        top : 50%;
+        left : 50%;
+        transform : translate(-50%,-50%);
+        display : flex;
+        flex-direction : column;
+        justify-content : center;
+        align-items : center;
+        width : 30rem;
+        height : 20rem;
+        border-radius : 10px;
+        text-align: center;
+        .modal_button{
+            display: inline-block;
+            padding: .5rem 2.25rem;
+            border-radius: .5rem;
+            transition: .3s;
+            color : white;
+            background-color: #272735;
+        }
+    }
+}
+.modalClose{
+    display : none;
+}
+
+
+@media only screen and (max-width : 777px) {
+    .applylayout{
+        width : 40rem;
+    }
+}
+
+@media only screen and (max-width : 385px) {
+    .applylayout{
+        width : 35rem;
     }
 }
 

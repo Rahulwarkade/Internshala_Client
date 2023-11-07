@@ -26,6 +26,10 @@ const Apply = () => {
     e.stopPropagation();
     setModalStatus(true);
   };
+  const appliedHandler = (e)=>{
+    toast("You have Applied for this Internship");
+    return;
+  }
   return (
     <>
       <div className="contain" onClick={()=>{setModalStatus(false)}}>
@@ -91,7 +95,7 @@ const Apply = () => {
               Apply
             </button>
           ) : (
-            <button onClick={applyHandler}  className="btn btn-success">
+            <button onClick={appliedHandler}  className="btn btn-success">
               Applied
             </button>
           )}

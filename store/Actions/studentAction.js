@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import {
     addstudent,
     addinternship,
+    addjob,
     removestudent,
     iserror,
     removeerror,
@@ -115,6 +116,21 @@ export const asyncstudentgetinternship = (id)=>async(dispatch,getState)=>{
 export const asyncstudentapplyinternship = (id)=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/student/apply/internship/"+id);
+    }catch(error){
+        dispatch(iserror(error.response.data.message));
+    }
+}
+export const asyncstudentgetjob = (id)=>async(dispatch,getState)=>{
+    try{
+        const {data} = await axios.post("/student/read/job/"+id);
+        dispatch(addjob(data.job));
+    }catch(error){
+        dispatch(iserror(error.response.data.message));
+    }
+}
+export const asyncstudentapplyjob = (id)=>async(dispatch,getState)=>{
+    try{
+        const {data} = await axios.post("/student/apply/job/"+id);
     }catch(error){
         dispatch(iserror(error.response.data.message));
     }

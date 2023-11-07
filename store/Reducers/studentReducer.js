@@ -27,6 +27,9 @@ export const studentReducer = createSlice(
             addinternship : (state,action)=>{
                 state.internship = action.payload;
             },
+            addjob : (state,action)=>{
+                state.job = action.payload;
+            },
             iserror : (state,action)=>{
                 state.errors.push(action.payload);
             },
@@ -40,6 +43,7 @@ export const studentReducer = createSlice(
 export const {
     addstudent,
     addinternship,
+    addjob,
     removestudent,
     iserror,
     removeerror
