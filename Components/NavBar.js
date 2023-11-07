@@ -25,10 +25,10 @@ const NavBar = () => {
           <Link className={style.link} href="/About">
             About
           </Link>
-          <Link className={style.link} href="/student/profile">
+          <Link className={style.link} href="/student/">
             Candidate
           </Link>
-          <Link className={style.link} href="/employe/profile">
+          <Link className={style.link} href="/employe/">
             Employer
           </Link>
         </div>
