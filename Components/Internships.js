@@ -58,7 +58,7 @@ const Internships = () => {
             <div className={style.more}>
               <Link
                 className={style.link}
-                href="#"
+                href={`/apply/internship/${intern._id}`}
               >
                 View details
                 <MdOutlineKeyboardDoubleArrowRight
@@ -71,8 +71,6 @@ const Internships = () => {
         </>
       );
     });
-  }else {
-    intern = "";
   }
   return (
     <>

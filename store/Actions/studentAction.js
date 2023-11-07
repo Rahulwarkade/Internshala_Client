@@ -88,7 +88,6 @@ export const asyncsigninstudent = (student)=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/student/signin",student);
         dispatch(addstudent(data.student));
-        console.log(data);
     }catch(error){
         dispatch(iserror(error.response.data.message))
         toast(error.response.data.message);
@@ -105,14 +104,19 @@ export const asyncsignoutstudent = (student)=>async(dispatch,getState)=>{
     }
 }
 
-export const asyncstudentgetjob = (id)=>async(dispatch,getState)=>{
+export const asyncstudentgetinternship = (id)=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/student/read/internship/"+id);
         dispatch(addinternship(data.internship));
     }catch(error){
-        // dispatch(iserror(error.response.data.message));
-        console.log(error);
-        // toast(error.response.data.message);
+        dispatch(iserror(error.response.data.message));
+    }
+}
+export const asyncstudentapplyinternship = (id)=>async(dispatch,getState)=>{
+    try{
+        const {data} = await axios.post("/student/apply/internship/"+id);
+    }catch(error){
+        dispatch(iserror(error.response.data.message));
     }
 }
 

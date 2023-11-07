@@ -20,6 +20,19 @@
   color: black;
   transition: ease-in;
 }
+@mixin iconrep {
+  color: #5f6060;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #10c9cf4e;
+  border: 1px solid #5f6060;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  transition: ease-in;
+}
 
 @mixin iconhover {
   background-color: #10c8cf;
@@ -144,6 +157,14 @@
     }
     .cpy {
       width: calc(100vw - 4rem);
+    }
+  }
+}
+@media only screen and (max-width: 444px) {
+  .foot-one{
+    margin-right : 12%;
+    .social-icons{
+      gap : .2rem;
     }
   }
 }
