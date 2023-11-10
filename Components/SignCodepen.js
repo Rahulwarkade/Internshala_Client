@@ -21,7 +21,7 @@ const SignCodepen = () => {
             email : e.target[0].value,
             password : e.target[1].value,
         };
-        await dispatch(asyncsigninstudent(student));
+         dispatch(asyncsigninstudent(student));
     }
 
     const signupHandler = async (e)=>{

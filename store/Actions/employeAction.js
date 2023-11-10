@@ -89,7 +89,7 @@ export const asyncsigninemploye = (employe)=>async(dispatch,getState)=>{
         dispatch(addemploye(data.employe));
     }catch(error){
         // dispatch(iserror(error.response.data.message));
-        toast(error);
+        toast(error.response.data.message);
     }
 }
 
