@@ -88,8 +88,8 @@ export const asyncsigninemploye = (employe)=>async(dispatch,getState)=>{
         const {data} = await axios.post("/employe/signin",employe);
         dispatch(addemploye(data.employe));
     }catch(error){
-        dispatch(iserror(error.response.data.message))
-        toast(error.response.data.message);
+        // dispatch(iserror(error.response.data.message));
+        toast(error);
     }
 }
 
