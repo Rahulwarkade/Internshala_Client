@@ -47,17 +47,17 @@ const Footer = () => {
             </div>
           </div>
           <div className="foot-two">
-            <Link className="link" href="#">
+            <Link className="link" href="/aboutus">
               About us
             </Link>
-            <Link className="link" href="#">
+            <Link className="link" href="/career">
               Careers
             </Link>
-            <Link className="link" href="#">
+            <Link className="link" href="/employe">
               Employer home
             </Link>
-            <Link className="link" href="#">
-              Sitemap
+            <Link className="link" href="/career">
+              Openings
             </Link>
           </div>
           <div className="foot-three">

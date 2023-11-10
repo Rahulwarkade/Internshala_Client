@@ -158,12 +158,12 @@ const profile = () => {
               )}
               <div className="user-bio">
                 <h3>Bio</h3>
-                <p className="bio">
-                  Lorem ipsum dolor sit amet, hello how consectetur adipisicing
-                  elit. Sint consectetur provident magni yohoho consequuntur,
-                  voluptatibus ghdfff exercitationem at quis similique. Optio,
-                  amet!
-                </p>
+                {(student)?(<p className="bio">
+                Hi, This is {student.firstname +" "+ student.lastname}.<br/>
+                Location : {student.city},<br/>
+                Gender : {student.gender},<br/>
+                Organization : {student.organizationname}.
+                </p>):""}
               </div>
               <div className="profile-btn">
                 <button
@@ -221,51 +221,89 @@ const profile = () => {
             </div>
 
             <div className={flag ? "cards" : "hid"}>
-              {jobs &&
-                jobs.map((job) => {
-                  return (
-                    <>
-                      <div className="card">
-                        <div className="internship">
-                          <h3>{job.title}</h3>
-                          <p>microsoft</p>
-                          <div className="line"></div>
+                {jobs &&
+                  jobs.map((job, index) => {
+                    return (
+                      <>
+                        <div key={job._id} className="card">
+                          <div className="job">
+                            <h3>{job.title}</h3>
+                            <p>{job.organizationname}</p>
+                            <div className="line"></div>
+                          </div>
+                          <div className="details">
+                            <div className="span">
+                              <GrLocation className="mt-1" />
+                              <p>{job.location}</p>
+                            </div>
+                            <div className="span">
+                              <LiaMoneyBillSolid className="mt-1" />
+                              <p>{job.slary}INR</p>
+                            </div>
+                            <div className="span">
+                              <BsCalendar2Date className="mt-1" />
+                              <p>{job.duration}</p>
+                            </div>
+                          </div>
+                          <div className="more">
+                            <Link
+                              className="link"
+                              href={`/apply/job/${job._id}`}
+                            >
+                              View details
+                              <MdOutlineKeyboardDoubleArrowRight
+                                className="ml-3"
+                                style={{ color: "#10C8CF", fontSize: "25px" }}
+                              />
+                            </Link>
+                          </div>
                         </div>
-                        <div className="details">
-                          <p>gurgaon</p>
-                          <p>3,00,000 - 7,00,000/year</p>
+                      </>
+                    );
+                  })}
+              </div>
+              <div className={!flag ? "cards" : "hid"}>
+                {internships &&
+                  internships.map((intern, index) => {
+                    return (
+                      <>
+                        <div className="card" key={intern._id}>
+                          <div className="internship">
+                            <h3>{intern.title}</h3>
+                            <p>{intern.organizationname}</p>
+                            <div className="line"></div>
+                          </div>
+                          <div className="details">
+                            <div className="span">
+                              <GrLocation className="mt-1" />
+                              <p>{intern.location}</p>
+                            </div>
+                            <div className="span">
+                              <LiaMoneyBillSolid className="mt-1" />
+                              <p>{intern.stipend}INR</p>
+                            </div>
+                            <div className="span">
+                              <BsCalendar2Date className="mt-1" />
+                              <p>{intern.duration}</p>
+                            </div>
+                          </div>
+                          <div className="more">
+                            <Link
+                              className="link"
+                              href={`/apply/internship/${intern._id}`}
+                            >
+                              View details
+                              <MdOutlineKeyboardDoubleArrowRight
+                                className="ml-3"
+                                style={{ color: "#10C8CF", fontSize: "25px" }}
+                              />
+                            </Link>
+                          </div>
                         </div>
-                        <div className="more">
-                          <Link href="#">View details</Link>
-                        </div>
-                      </div>
-                    </>
-                  );
-                })}
-            </div>
-            <div className={!flag ? "cards" : "hid"}>
-              {internships &&
-                internships.map((intern) => {
-                  return (
-                    <>
-                      <div className="card">
-                        <div className="internship">
-                          <h3>{intern.profile}</h3>
-                          <p>microsoft</p>
-                          <div className="line"></div>
-                        </div>
-                        <div className="details">
-                          <p>gurgaon</p>
-                          <p>3,00,000 - 7,00,000/year</p>
-                        </div>
-                        <div className="more">
-                          <Link href="#">View details</Link>
-                        </div>
-                      </div>
-                    </>
-                  );
-                })}
-            </div>
+                      </>
+                    );
+                  })}
+              </div>
           </div>
         </div>
       </div>

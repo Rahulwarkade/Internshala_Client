@@ -16,8 +16,11 @@ import "remixicon/fonts/remixicon.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./NavBar.js";
 import Link from "next/link";
-import Footer from '@/Components/Footer.js';
-
+import Footer from "@/Components/Footer.js";
+import { LiaMoneyBillSolid } from "react-icons/lia";
+import { GrLocation } from "react-icons/gr";
+import { BsCalendar2Date } from "react-icons/bs";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 
 const profile = () => {
   const [title, setTitle] = useState("");
@@ -169,7 +172,6 @@ const profile = () => {
               className="form-control mt-2"
               placeholder="Openings"
             />
-
 
             <input
               onChange={(e) => setSalary(e.target.value)}
@@ -339,119 +341,124 @@ const profile = () => {
         </div>
       </div>
       <div>
-      <NavBar/>
-      <div className="container">
-        <div className="profile-header">
-          <div className="profile-img">
-            {!employe ? (
-              <img
-                onClick={inputpicHandler}
-                src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJHtLNj7M2GqTtcijfgVGjSK5BWMLlI1Q8pPYNc6G6ZYMQyXUiPWQhK19MtmGh6A6POM&usqp=CAU`}
-                width="200"
-                alt="Profile Image"
-              />
-            ) : (
-              <img
-                onClick={inputpicHandler}
-                src={employe.avatar.url}
-                width="200"
-                alt="Profile Image"
-              />
-            )}
-            <form
-              onSubmit={avatarHandler}
-              id="hidden"
-              encType="multipart/form-data"
-            >
-              <input
-                ref={inputpic}
-                onChange={submitHandler}
-                type="file"
-                name="avatar"
-              />
-              <button ref={submit} type="submit">
-                {" "}
-                submit{" "}
-              </button>
-            </form>
-          </div>
-          <div className="profile-nav-info">
-            {!employe ? (
-              <h3 className="user-name">Firstname Lastname</h3>
-            ) : (
-              <h3 className="user-name">
-                {employe?.firstname + " " + employe?.lastname}
-              </h3>
-            )}
-            <div className="address">
+        <NavBar />
+        <div className="container">
+          <div className="profile-header">
+            <div className="profile-img">
               {!employe ? (
-                <p id="state" className="state">
-                  City,
-                </p>
+                <img
+                  onClick={inputpicHandler}
+                  src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJHtLNj7M2GqTtcijfgVGjSK5BWMLlI1Q8pPYNc6G6ZYMQyXUiPWQhK19MtmGh6A6POM&usqp=CAU`}
+                  width="200"
+                  alt="Profile Image"
+                />
               ) : (
-                <p id="state" className="state">
-                  {employe.city},
-                </p>
+                <img
+                  onClick={inputpicHandler}
+                  src={employe.avatar.url}
+                  width="200"
+                  alt="Profile Image"
+                />
               )}
-              <span id="country" className="country">
-                IDNIA.
-              </span>
-            </div>
-          </div>
-          <div className="profile-option">
-            <div className="notification">
-              {/* <i className="fa fa-bell"></i> */}
-              <Link className="link" href="/">
-                Home
-              </Link>
-              {/* <span className="alert-message">3</span> */}
-            </div>
-          </div>
-        </div>
-
-        <div className="main-bd">
-          <div className="left-side">
-            <div className="profile-side">
-              {!employe ? (
-                <p className="mobile-no">
-                  <i className="fa fa-phone"></i> +91470xxxxx700
-                </p>
-              ) : (
-                <p className="mobile-no">
-                  <i className="fa fa-phone"></i>
-                  {employe.contact}
-                </p>
-              )}
-              {!employe ? (
-                <p className="user-mail">
-                  <i className="fa fa-envelope"></i>example@gmail.com
-                </p>
-              ) : (
-                <p className="user-mail">
-                  <i className="fa fa-envelope"></i>
-                  {employe.email}
-                </p>
-              )}
-              <div className="user-bio">
-                <h3>Bio</h3>
-                <p className="bio">
-                  Lorem ipsum dolor sit amet, hello how consectetur adipisicing
-                  elit. Sint consectetur provident magni yohoho consequuntur,
-                  voluptatibus ghdfff exercitationem at quis similique. Optio,
-                  amet!
-                </p>
-              </div>
-              <div className="profile-btn">
-                <button
-                  onClick={signoutHandler}
-                  className="chatbtn"
-                  id="chatBtn"
-                >
-                  <i className="fa fa-comment"></i>Signout
+              <form
+                onSubmit={avatarHandler}
+                id="hidden"
+                encType="multipart/form-data"
+              >
+                <input
+                  ref={inputpic}
+                  onChange={submitHandler}
+                  type="file"
+                  name="avatar"
+                />
+                <button ref={submit} type="submit">
+                  {" "}
+                  submit{" "}
                 </button>
+              </form>
+            </div>
+            <div className="profile-nav-info">
+              {!employe ? (
+                <h3 className="user-name">Firstname Lastname</h3>
+              ) : (
+                <h3 className="user-name">
+                  {employe?.firstname + " " + employe?.lastname}
+                </h3>
+              )}
+              <div className="address">
+                {!employe ? (
+                  <p id="state" className="state">
+                    City,
+                  </p>
+                ) : (
+                  <p id="state" className="state">
+                    {employe.city},
+                  </p>
+                )}
+                <span id="country" className="country">
+                  IDNIA.
+                </span>
               </div>
+            </div>
+            <div className="profile-option">
+              <div className="notification">
+                {/* <i className="fa fa-bell"></i> */}
+                <Link className="link" href="/">
+                  Home
+                </Link>
+                {/* <span className="alert-message">3</span> */}
+              </div>
+            </div>
+          </div>
 
-              {/* <div className="user-rating">
+          <div className="main-bd">
+            <div className="left-side">
+              <div className="profile-side">
+                {!employe ? (
+                  <p className="mobile-no">
+                    <i className="fa fa-phone"></i> +91470xxxxx700
+                  </p>
+                ) : (
+                  <p className="mobile-no">
+                    <i className="fa fa-phone"></i>
+                    {employe.contact}
+                  </p>
+                )}
+                {!employe ? (
+                  <p className="user-mail">
+                    <i className="fa fa-envelope"></i>example@gmail.com
+                  </p>
+                ) : (
+                  <p className="user-mail">
+                    <i className="fa fa-envelope"></i>
+                    {employe.email}
+                  </p>
+                )}
+                <div className="user-bio">
+                  <h3>Bio</h3>
+                  {employe ? (
+                    <p className="bio">
+                      Hi, This is {employe.firstname + " " + employe.lastname}.
+                      <br />
+                      Location : {employe.city},<br />
+                      Gender : {employe.gender},<br />
+                      Organization : {employe.organizationname}.
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="profile-btn">
+                  <button
+                    onClick={signoutHandler}
+                    className="chatbtn"
+                    id="chatBtn"
+                  >
+                    <i className="fa fa-comment"></i>Signout
+                  </button>
+                </div>
+
+                {/* <div className="user-rating">
           <h3 className="rating">4.5</h3>
           <div className="rate">
             <div className="star-outer">
@@ -466,98 +473,136 @@ const profile = () => {
             <span className="no-of-user-rate"><span>123</span>&nbsp;&nbsp;reviews</span>
           </div>
         </div> */}
+              </div>
             </div>
-          </div>
-          <div className="right-side">
-            <div className="nav">
-              <ul>
-                <li
-                  onClick={() => {
-                    setFlag(true);
-                  }}
-                  className="user-post active"
-                >
-                  Jobs
-                </li>
-                <li
-                  onClick={() => {
-                    setFlag(false);
-                  }}
-                  className="user-review"
-                >
-                  Internships
-                </li>
-                <li onClick={updateHandler} className="user-setting">
-                  Update
-                </li>
-                <li onClick={resetpasswordHandler} className="user-setting">
-                  Reset Password
-                </li>
-                <li
-                  onClick={() => setJobflag(!jobflag)}
-                  className="user-setting"
-                >
-                  Create Jobs
-                </li>
-                <li
-                  onClick={() => setInternflag(!internflag)}
-                  className="user-setting"
-                >
-                  Create Internships
-                </li>
-              </ul>
-            </div>
+            <div className="right-side">
+              <div className="nav">
+                <ul>
+                  <li
+                    onClick={() => {
+                      setFlag(true);
+                    }}
+                    className="user-post active"
+                  >
+                    Jobs
+                  </li>
+                  <li
+                    onClick={() => {
+                      setFlag(false);
+                    }}
+                    className="user-review"
+                  >
+                    Internships
+                  </li>
+                  <li onClick={updateHandler} className="user-setting">
+                    Update
+                  </li>
+                  <li onClick={resetpasswordHandler} className="user-setting">
+                    Reset Password
+                  </li>
+                  <li
+                    onClick={() => setJobflag(!jobflag)}
+                    className="user-setting"
+                  >
+                    Create Jobs
+                  </li>
+                  <li
+                    onClick={() => setInternflag(!internflag)}
+                    className="user-setting"
+                  >
+                    Create Internships
+                  </li>
+                </ul>
+              </div>
 
-            <div className={flag ? "cards" : "hid"}>
-              {jobs &&
-                jobs.map((job) => {
-                  return (
-                    <>
-                      <div className="card">
-                        <div className="internship">
-                          <h3>{job.title}</h3>
-                          <p>{job.organizationname}</p>
-                          <div className="line"></div>
+              <div className={flag ? "cards" : "hid"}>
+                {jobs &&
+                  jobs.map((job, index) => {
+                    return (
+                      <>
+                        <div key={job._id} className="card">
+                          <div className="job">
+                            <h3>{job.title}</h3>
+                            <p>{job.organizationname}</p>
+                            <div className="line"></div>
+                          </div>
+                          <div className="details">
+                            <div className="span">
+                              <GrLocation className="mt-1" />
+                              <p>{job.location}</p>
+                            </div>
+                            <div className="span">
+                              <LiaMoneyBillSolid className="mt-1" />
+                              <p>{job.slary}INR</p>
+                            </div>
+                            <div className="span">
+                              <BsCalendar2Date className="mt-1" />
+                              <p>{job.duration}</p>
+                            </div>
+                          </div>
+                          <div className="more">
+                            <Link
+                              className="link"
+                              href={`/apply/job/${job._id}`}
+                            >
+                              View details
+                              <MdOutlineKeyboardDoubleArrowRight
+                                className="ml-3"
+                                style={{ color: "#10C8CF", fontSize: "25px" }}
+                              />
+                            </Link>
+                          </div>
                         </div>
-                        <div className="details">
-                          <p>gurgaon</p>
-                          <p>{job.salary}</p>
+                      </>
+                    );
+                  })}
+              </div>
+              <div className={!flag ? "cards" : "hid"}>
+                {internships &&
+                  internships.map((intern, index) => {
+                    return (
+                      <>
+                        <div className="card" key={intern._id}>
+                          <div className="internship">
+                            <h3>{intern.title}</h3>
+                            <p>{intern.organizationname}</p>
+                            <div className="line"></div>
+                          </div>
+                          <div className="details">
+                            <div className="span">
+                              <GrLocation className="mt-1" />
+                              <p>{intern.location}</p>
+                            </div>
+                            <div className="span">
+                              <LiaMoneyBillSolid className="mt-1" />
+                              <p>{intern.stipend}INR</p>
+                            </div>
+                            <div className="span">
+                              <BsCalendar2Date className="mt-1" />
+                              <p>{intern.duration}</p>
+                            </div>
+                          </div>
+                          <div className="more">
+                            <Link
+                              className="link"
+                              href={`/apply/internship/${intern._id}`}
+                            >
+                              View details
+                              <MdOutlineKeyboardDoubleArrowRight
+                                className="ml-3"
+                                style={{ color: "#10C8CF", fontSize: "25px" }}
+                              />
+                            </Link>
+                          </div>
                         </div>
-                        <div className="more">
-                          <Link href="#">View details</Link>
-                        </div>
-                      </div>
-                    </>
-                  );
-                })}
-            </div>
-            <div className={!flag ? "cards" : "hid"}>
-              {internships &&
-                internships.map((intern) => {
-                  return (
-                    <>
-                      <div className="card">
-                        <div className="internship">
-                          <h3>{intern.title}</h3>
-                          <p>{intern.organizationname}</p>
-                          <div className="line"></div>
-                        </div>
-                        <div className="details">
-                          <p>{intern.location}</p>
-                          <p>{intern.stipend}</p>
-                        </div>
-                        <div className="more">
-                          <Link href="#">View details</Link>
-                        </div>
-                      </div>
-                    </>
-                  );
-                })}
+                      </>
+                    );
+                  })}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <Footer/>
+        <Footer />
       </div>
     </>
   );
