@@ -64,9 +64,9 @@ const EmployeSignin = () => {
           <button id="login-toggle" onClick={toggleLogin}>
             log in
           </button>
-          <button id="signup-toggle" onClick={toggleSignup}>
+          {/* <button id="signup-toggle" onClick={toggleSignup}>
             sign up
-          </button>
+          </button> */}
         </div>
         <div id="signup-form">
           <form onSubmit={signupHandler}>
@@ -82,11 +82,11 @@ const EmployeSignin = () => {
             <button type="submit" className="btn signup">
               create account
             </button>
-            {/* <p>Clicking <strong>create account</strong> means that you are agree to our <a href="javascript:void(0)">terms of services</a>.</p> */}
+            <p>Clicking <strong>create account</strong> means that you are agree to our <a href="javascript:void(0)">terms of services</a>.</p>
             <hr />
-            {/* <button type="button" className="btn -box-sd-effect"> <i className="fa fa-google fa-lg" aria-hidden="true"></i> sign up with google</button>
+            <button type="button" className="btn -box-sd-effect"> <i className="fa fa-google fa-lg" aria-hidden="true"></i> sign up with google</button>
             <button type="button" className="btn -box-sd-effect"> <i className="fa fa-linkedin fa-lg" aria-hidden="true"></i> sign up with linkedin</button>
-            <button type="button" className="btn -box-sd-effect"> <i className="fa fa-windows fa-lg" aria-hidden="true"></i> sign up with microsoft</button> */}
+            <button type="button" className="btn -box-sd-effect"> <i className="fa fa-windows fa-lg" aria-hidden="true"></i> sign up with microsoft</button>
           </form>
         </div>
         <div id="login-form">

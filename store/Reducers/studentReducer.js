@@ -8,6 +8,7 @@ const initialState = {
     job : null,
     errors : [],
     isAuthenticated : false,
+    matchedJob : null,
 }
 
 export const studentReducer = createSlice(
@@ -30,6 +31,9 @@ export const studentReducer = createSlice(
             addjob : (state,action)=>{
                 state.job = action.payload;
             },
+            addmatchedjob : (state,action)=>{
+                state.matchedJob = action.payload;
+            },
             iserror : (state,action)=>{
                 state.errors.push(action.payload);
             },
@@ -46,6 +50,7 @@ export const {
     addjob,
     removestudent,
     iserror,
-    removeerror
+    removeerror,
+    addmatchedjob
     } = studentReducer.actions;
 export default studentReducer.reducer;

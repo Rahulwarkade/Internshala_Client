@@ -7,6 +7,7 @@ import {
   asynccurrentstudent,
   asyncstudentavatar,
   asyncsignoutstudent,
+  asyncstudentmatchedjob,
 } from "@/store/Actions/studentAction.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
@@ -15,15 +16,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./NavBar.js";
 import Link from "next/link";
 import Footer from "@/Components/Footer.js";
-
+import { ColorRing } from "react-loader-spinner";
+import { LiaMoneyBillSolid } from "react-icons/lia";
+import { GrLocation } from "react-icons/gr";
+import { BsCalendar2Date } from "react-icons/bs";
+import { toast } from "react-toastify";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 const profile = () => {
   const [flag, setFlag] = useState(true);
-  const { student, isAuthenticated } = useSelector(
+  const { student, isAuthenticated ,matchedJob} = useSelector(
     (state) => state.studentReducer
   );
-  const jobs = student?.jobs;
   const internships = student?.internships;
-
+  const appliedHandler = (e)=>{
+    toast("You have applied for this Job.");
+    return;
+  }
   const inputpic = useRef();
   const pic = useRef();
   const submit = useRef();
@@ -59,7 +67,9 @@ const profile = () => {
 
   useEffect(() => {
     if (!isAuthenticated) router.push("/student");
+    dispatch(asyncstudentmatchedjob(student?._id));
   }, [student]);
+  const jobs = student?.jobs;
 
   return (
     <>
@@ -125,8 +135,8 @@ const profile = () => {
           <div className="profile-option">
             <div className="notification">
               {/* <i className="fa fa-bell"></i> */}
-              <Link className="link" href="/">
-                Home
+              <Link className="link" onClick = {signoutHandler} href='/'>
+                Signout
               </Link>
               {/* <span className="alert-message">3</span> */}
             </div>
@@ -160,18 +170,19 @@ const profile = () => {
                 <h3>Bio</h3>
                 {(student)?(<p className="bio">
                 Hi, This is {student.firstname +" "+ student.lastname}.<br/>
+                Skills : {student.skills},<br/>
                 Location : {student.city},<br/>
                 Gender : {student.gender},<br/>
-                Organization : {student.organizationname}.
+                {/* Organization : {student.organizationname}. */}
                 </p>):""}
               </div>
               <div className="profile-btn">
                 <button
-                  onClick={signoutHandler}
+                  onClick={updateHandler}
                   className="chatbtn"
                   id="chatBtn"
                 >
-                  <i className="fa fa-comment"></i>Signout
+                  <i className="fa fa-comment"></i>Edit
                 </button>
               </div>
 
@@ -211,9 +222,9 @@ const profile = () => {
                 >
                   Internships
                 </li>
-                <li onClick={updateHandler} className="user-setting">
+                {/* <li onClick={updateHandler} className="user-setting">
                   Update
-                </li>
+                </li> */}
                 <li onClick={resetpasswordHandler} className="user-setting">
                   Reset Password
                 </li>
@@ -223,6 +234,50 @@ const profile = () => {
             <div className={flag ? "cards" : "hid"}>
                 {jobs &&
                   jobs.map((job, index) => {
+                    return (
+                      <>
+                        <div key={job._id} className="card">
+                          <div className="job">
+                            <h3>{job.title}</h3>
+                            <p>{job.organizationname}</p>
+                            <div className="line"></div>
+                          </div>
+                          <div className="details">
+                            <div className="span">
+                              <GrLocation className="mt-1" />
+                              <p>{job.location}</p>
+                            </div>
+                            <div className="span">
+                              <LiaMoneyBillSolid className="mt-1" />
+                              <p>{job.slary}INR</p>
+                            </div>
+                            <div className="span">
+                              <BsCalendar2Date className="mt-1" />
+                              <p>{job.duration}</p>
+                            </div>
+                          </div>
+                          <div className="more">
+                            <Link
+                              className="link"
+                              href={`/apply/job/${job._id}`}
+                            >
+                              View details
+                              <MdOutlineKeyboardDoubleArrowRight
+                                className="ml-3"
+                                style={{ color: "#10C8CF", fontSize: "25px" }}
+                              />
+                            </Link>
+                            <button onClick={appliedHandler}  className="btn btn-success">
+              Applied
+            </button>
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
+
+{matchedJob &&
+                  matchedJob.map((job, index) => {
                     return (
                       <>
                         <div key={job._id} className="card">
@@ -298,6 +353,9 @@ const profile = () => {
                                 style={{ color: "#10C8CF", fontSize: "25px" }}
                               />
                             </Link>
+                            <button onClick={appliedHandler}  className="btn btn-success">
+              Applied
+            </button>
                           </div>
                         </div>
                       </>

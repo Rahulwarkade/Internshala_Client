@@ -7,6 +7,7 @@ import {
     addjob,
     removestudent,
     iserror,
+    addmatchedjob,
     removeerror,
 } from "../Reducers/studentReducer";
 
@@ -131,6 +132,14 @@ export const asyncstudentgetjob = (id)=>async(dispatch,getState)=>{
 export const asyncstudentapplyjob = (id)=>async(dispatch,getState)=>{
     try{
         const {data} = await axios.post("/student/apply/job/"+id);
+    }catch(error){
+        dispatch(iserror(error.response.data.message));
+    }
+}
+export const asyncstudentmatchedjob = (id)=>async(dispatch,getState)=>{
+    try{
+        const {data} = await axios.post("/student/matchedjob/"+id);
+        dispatch(addmatchedjob(data.jobs));
     }catch(error){
         dispatch(iserror(error.response.data.message));
     }

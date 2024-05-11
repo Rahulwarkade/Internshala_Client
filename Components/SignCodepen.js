@@ -32,8 +32,9 @@ const SignCodepen = () => {
             contact : e.target[2].value,
             city : e.target[3].value,
             gender : e.target[4].value,
-            email : e.target[5].value,
-            password : e.target[6].value,
+            skills : e.target[5].value,
+            email : e.target[6].value,
+            password : e.target[7].value,
         };
        await  dispatch(asyncsignupstudent(newStudent));
     }
@@ -74,6 +75,7 @@ const SignCodepen = () => {
             <input type="text" placeholder="Contact" />
             <input type="text" placeholder="City" />
             <input type="text" placeholder="Genger : Male,Female,and Others" />
+            <input type="text" placeholder="Skills" />
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Password" />
             <button type="submit" className="btn signup">

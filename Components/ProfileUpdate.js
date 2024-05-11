@@ -17,7 +17,7 @@ const profileupdate = ()=>{
         lastname : e.target[1].value,
         contact : e.target[2].value,
         city : e.target[3].value,
-        gender : e.target[4].value,
+        skills : e.target[4].value,
         email : e.target[5].value,
     };
    await  dispatch(asyncupdatestudent(updateStudent));
@@ -32,7 +32,7 @@ const profileupdate = ()=>{
             <input type="text" placeholder="Lastname" />
             <input type="text" placeholder="Contact" />
             <input type="text" placeholder="City" />
-            <input type="text" placeholder="Genger : Male,Female,and Others" />
+            <input type="text" placeholder="Skills" />
             <input type="email" placeholder="Email" />
             <button type="submit" className="btn signup">
               update account
