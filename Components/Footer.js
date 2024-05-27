@@ -53,11 +53,11 @@ const Footer = () => {
             <Link className="link" href="/career">
               Careers
             </Link>
-            <Link className="link" href="/employe">
-              Employer home
+            <Link className="link" href="/admin/reqAdmin">
+              Employer request
             </Link>
-            <Link className="link" href="/career">
-              Openings
+            <Link className="link" href="/admin">
+              Admin 
             </Link>
           </div>
           <div className="foot-three">
